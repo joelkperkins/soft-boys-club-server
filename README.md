@@ -1,0 +1,113 @@
+# Guild Chat
+
+Guild Chat is an API for sending and recieving messages
+
+## Table of Contents
+
+1. [Installation and Usage](#installation-and-usage)
+2. [Configuration](#configuration)
+3. [Routes](#routes)
+4. [Author](#author)
+
+## <a name="installation-and-usage"></a>Installation and Usage
+
+Prerequisites: [Node.js](https://nodejs.org/) (`>=12.14.0`)
+
+You can clone this repo:
+
+```
+$ git clone git://github.com/eslint/eslint.git
+```
+
+Then, install 
+
+```
+$ git npm install
+```
+
+After that, you can run Guild Chat like this:
+
+```
+$ npm start
+```
+
+## <a name="configuration"></a>Configuration
+
+After cloning Guild Chat, you'll have a `config.js` file in your directory. In it, you'll see some rules configured like this:
+
+```
+{
+  port: 3000,
+  db: <INSERT DB URI>,
+  chatroom: <CHATROOM NAME>
+}
+```
+
+The default db string and the chatroom name will work for testing. 
+
+## <a name="routes"></a>Routes
+
+Get all messages in database sent in last 30 days, limited to 100
+
+```
+GET /messages
+
+/**
+ * @apiRoute get '/messages' Gets all messages sent by users within 100 days, limited to 100
+ *
+ * @apiQueryParam {string} sender - if included api will query for messages from specific sender, if either is not included the endpoint returns all messages
+ *
+ * @apiQueryParam {string} recipient - if included api will query for messages to specific recipient, , if either is not included the endpoint returns all messages
+ *
+ * @apiSuccess {Array} Array of messages
+ */
+```
+
+Gets all messages sent between two users within 100 days, limited to 100
+
+```
+GET /messages/between?to=<string>&from<string>
+
+/**
+ * @apiRoute get '/messages/between' Gets all messages sent between two users within 100 days, limited to 100
+ *
+ * @apiQueryParam {string} to - user who recieved the message
+ *
+ * @apiQueryParam {string} from - user who sent the message
+ *
+ * @apiSuccess {Array} Array of message objects
+ */
+```
+
+Send a message to another user
+
+```
+POST /chat
+
+/**
+ * @apiRoute POST '/send' Send a chat message to another user
+ *
+ * @apiBody {object} { user_id: {string}, recipient_id: {string}, message: {string} } Object containing from, to, and message body.
+ *
+ * @apiSuccess {String} Confirmation of sent message, returns ID of message
+ */
+```
+
+React to a message received 
+
+```
+PUT /chat/react
+
+/**
+ * @apiRoute PUT '/react' User reacts to a message they received
+ *
+ * @apiBody {object} { messageId: <string>, reaction: <string>} Object containing id of message
+ *
+ * @apiSuccess {String} Number of updated messages
+ */
+```
+
+## <a name="author"></a>Author
+
+Joel K. Perkins
+
