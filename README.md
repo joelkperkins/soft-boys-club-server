@@ -56,10 +56,6 @@ GET /messages
 /**
  * @apiRoute get '/messages' Gets all messages sent by users within 100 days, limited to 100
  *
- * @apiQueryParam {string} sender - if included api will query for messages from specific sender, if either is not included the endpoint returns all messages
- *
- * @apiQueryParam {string} recipient - if included api will query for messages to specific recipient, , if either is not included the endpoint returns all messages
- *
  * @apiSuccess {Array} Array of messages
  */
 ```
