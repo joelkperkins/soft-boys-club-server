@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 import messageSchema from './schemas/message.schema'
 
 const DB_URI = config.db
-const COLLECTION = config.chatroom
+const COLLECTION = config.collection
 
 module.exports = {
   dbConnect: () => mongoose.connect(DB_URI, { useNewUrlParser: true }),

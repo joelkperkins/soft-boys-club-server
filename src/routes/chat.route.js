@@ -9,7 +9,7 @@ const chat = Router()
 /**
  * @apiRoute POST '/send' Send a chat message to another user
  *
- * @apiBody {object} { user_id: {string}, recipient_id: {string}, message: {string} } Object containing from, to, and message body.
+ * @apiBody {object} { to: {string}, from: {string}, message: {string} }
  *
  * @apiSuccess {String} Confirmation of sent message, returns ID of message
  */
@@ -28,7 +28,7 @@ chat.post('/', async (req, res) => {
 /**
  * @apiRoute PUT '/react' User reacts to a message they received
  *
- * @apiBody {object} { messageId: <string>, reaction: <string>} Object containing id of message
+ * @apiBody {object} { messageId: <string>, reaction: <string>} Object containing id of message and reaction string
  *
  * @apiSuccess {String} Number of updated messages
  */
