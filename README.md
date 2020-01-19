@@ -88,7 +88,7 @@ POST /chat
 /**
  * @apiRoute POST '/send' Send a chat message to another user
  *
- * @apiBody {object} { user_id: {string}, recipient_id: {string}, message: {string} } Object containing from, to, and message body.
+ * @apiBody {object} { to: {string}, from: {string}, message: {string} }
  *
  * @apiSuccess {String} Confirmation of sent message, returns ID of message
  */
