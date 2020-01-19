@@ -17,7 +17,7 @@ Prerequisites: [Node.js](https://nodejs.org/) (`>=12.14.0`)
 You can clone this repo:
 
 ```
-$ git clone git://github.com/eslint/eslint.git
+$ git clone https://github.com/joelkperkins/guild-chat.git
 ```
 
 Then, install 
