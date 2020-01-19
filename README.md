@@ -106,7 +106,8 @@ PUT /chat/react
 
 ## <a name="notes"></a>Notes
 
-Our Demo Mongo database will eventually run out of space. Please dont spam messages while testing. 
+Our Demo Mongo database will eventually run out of space. Please dont spam messages while testing.
+100 stars and we will add a delete function. 
 
 ## <a name="author"></a>Author
 
