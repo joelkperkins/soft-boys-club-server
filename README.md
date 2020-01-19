@@ -60,7 +60,7 @@ Get all messages in database sent in last 30 days, limited to 100. Send a `GET` 
  */
 ```
 
-### GET /messages/between?to=<string>&from<string>
+### GET /messages/between?to=&from=
 
 Gets all messages sent between two users within 100 days, limited to 100. Send a `GET` to `/messages?to=<string>&from=<string>` with added url query parameters indicating the users whose conversation you would like to retrieve. 
 
