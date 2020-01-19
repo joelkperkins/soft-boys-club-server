@@ -56,7 +56,7 @@ GET /messages
 /**
  * @apiRoute get '/messages' Gets all messages sent by users within 100 days, limited to 100
  *
- * @apiSuccess {Array} Array of messages
+ * @apiSuccess {object[]} Array of message objects
  */
 ```
 
@@ -72,7 +72,7 @@ GET /messages/between?to=<string>&from<string>
  *
  * @apiQueryParam {string} from - user who sent the message
  *
- * @apiSuccess {Array} Array of message objects
+ * @apiSuccess {object[]} Array of message objects
  */
 ```
 
