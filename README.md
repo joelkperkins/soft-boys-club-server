@@ -48,7 +48,7 @@ The default db string and the chatroom name will work for testing.
 
 ## <a name="routes"></a>Routes
 
-Get all messages in database sent in last 30 days, limited to 100. Send a `GET` to '/messages' to retrieve all messages. 
+Get all messages in database sent in last 30 days, limited to 100. Send a `GET` to `/messages` to retrieve all messages. 
 
 ```
 GET /messages
@@ -60,7 +60,7 @@ GET /messages
  */
 ```
 
-Gets all messages sent between two users within 100 days, limited to 100. Send a `GET` to '/messages?to=<string>&from=<string>' with added url query parameters indicating the users whose conversation you would like to retrieve. 
+Gets all messages sent between two users within 100 days, limited to 100. Send a `GET` to `/messages?to=<string>&from=<string>` with added url query parameters indicating the users whose conversation you would like to retrieve. 
 
 ```
 GET /messages/between?to=<string>&from<string>
@@ -76,7 +76,7 @@ GET /messages/between?to=<string>&from<string>
  */
 ```
 
-Send a message to another user. Send a `POST` to '/chat' with a body containing the sender, recipient, and message. The message is saved and can be retrieved with the GET routes. 
+Send a message to another user. Send a `POST` to `/chat` with a body containing the sender, recipient, and message. The message is saved and can be retrieved with the GET routes. 
 
 ```
 POST /chat
@@ -90,7 +90,7 @@ POST /chat
  */
 ```
 
-React to a message received. Send a `PUT` to '/chat/react' with a body containing the ID of the message to react to and reaction string. This reaction is saved with the message. 
+React to a message received. Send a `PUT` to `/chat/react` with a body containing the ID of the message to react to and reaction string. This reaction is saved with the message. 
 
 Currently accepted reactions are: 
  > 'like'
