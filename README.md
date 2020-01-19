@@ -98,7 +98,7 @@ PUT /chat/react
 /**
  * @apiRoute PUT '/react' User reacts to a message they received
  *
- * @apiBody {object} { messageId: <string>, reaction: <string>} Object containing id of message
+ * @apiBody {object} { messageId: <string>, reaction: <string>} Object containing id of message and reaction ('like/dislike')
  *
  * @apiSuccess {String} Number of updated messages
  */
