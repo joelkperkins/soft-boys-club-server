@@ -48,11 +48,11 @@ The default db string and the chatroom name will work for testing.
 
 ## <a name="routes"></a>Routes
 
+### GET /messages
+
 Get all messages in database sent in last 30 days, limited to 100. Send a `GET` to `/messages` to retrieve all messages. 
 
 ```
-GET /messages
-
 /**
  * @apiRoute get '/messages' Gets all messages sent by users within 100 days, limited to 100
  *
@@ -60,11 +60,11 @@ GET /messages
  */
 ```
 
+### GET /messages/between?to=<string>&from<string>
+
 Gets all messages sent between two users within 100 days, limited to 100. Send a `GET` to `/messages?to=<string>&from=<string>` with added url query parameters indicating the users whose conversation you would like to retrieve. 
 
 ```
-GET /messages/between?to=<string>&from<string>
-
 /**
  * @apiRoute get '/messages/between' Gets all messages sent between two users within 100 days, limited to 100
  *
@@ -76,11 +76,11 @@ GET /messages/between?to=<string>&from<string>
  */
 ```
 
+### POST /chat
+
 Send a message to another user. Send a `POST` to `/chat` with a body containing the sender, recipient, and message. The message is saved and can be retrieved with the GET routes. 
 
 ```
-POST /chat
-
 /**
  * @apiRoute POST '/send' Send a chat message to another user
  *
@@ -90,6 +90,8 @@ POST /chat
  */
 ```
 
+### PUT /chat/react
+
 React to a message received. Send a `PUT` to `/chat/react` with a body containing the ID of the message to react to and reaction string. This reaction is saved with the message. 
 
 Currently accepted reactions are: 
@@ -97,8 +99,6 @@ Currently accepted reactions are:
  > 'dislike"
 
 ```
-PUT /chat/react
-
 /**
  * @apiRoute PUT '/react' User reacts to a message they received
  *
