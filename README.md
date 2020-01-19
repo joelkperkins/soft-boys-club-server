@@ -1,13 +1,14 @@
 # Guild Chat
 
-Guild Chat is an API for sending and recieving messages
+Guild Chat is an API integrated with MongoDB to stand up a simple messaging application
 
 ## Table of Contents
 
 1. [Installation and Usage](#installation-and-usage)
 2. [Configuration](#configuration)
 3. [Routes](#routes)
-4. [Author](#author)
+4. [Notes](#notes)
+5. [Author](#author)
 
 ## <a name="installation-and-usage"></a>Installation and Usage
 
@@ -106,6 +107,10 @@ PUT /chat/react
  * @apiSuccess {String} Number of updated messages
  */
 ```
+
+## <a name="notes"></a>Notes
+
+Our Demo Mongo database will eventually run out of space. Please dont spam messages while testing. 
 
 ## <a name="author"></a>Author
 
