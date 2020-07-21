@@ -6,7 +6,6 @@
     "start": "nodemon --exec babel-node src/server.js",
     "test": "mocha --require @babel/register"
   },
-  "type": "module",
   "keywords": [],
   "author": "Joel K. Perkins <joel.climbs@gmail.com> (www.joelkperkins.com)",
   "license": "ISC",
@@ -33,7 +32,7 @@
     "express": "^4.17.1",
     "moment": "^2.24.0",
     "mongoose": "^5.8.7",
-    "twilio": "^3.39.2"
+    "twilio": "^3.48.0"
   },
   "directories": {
     "test": "test"

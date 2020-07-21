@@ -14,9 +14,9 @@ const generateTimeStamp30DaysAgo = () => moment().subtract(30, 'days').format().
  * @returns {boolean} Returns true if body is valid
  */
 
-const validMessageBody = (messageBody) => {
+const validSubscription = (messageBody) => {
   if (!messageBody) return false
-  if (!messageBody.to || !messageBody.from || !messageBody.message) return false
+  if (!messageBody.number || !messageBody.name) return false
   if (Object.keys(messageBody).find(key => typeof messageBody[key] !== 'string')) return false
   return true
 }
@@ -31,7 +31,7 @@ const validMessageId = (messageId) => {
 
 module.exports = {
   generateTimeStamp30DaysAgo,
-  validMessageBody,
+  validSubscription,
   validReaction,
   validMessageId
 }

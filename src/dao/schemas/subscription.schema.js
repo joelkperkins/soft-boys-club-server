@@ -1,25 +1,17 @@
 import mongoose from 'mongoose'
 
-const messageSchema = new mongoose.Schema({
-  from: {
+const subscriptionSchema = new mongoose.Schema({
+  name: {
     type: String,
     required: true
   },
-  to: {
+  number: {
     type: String,
     required: true
   },
-  message: {
-    type: String,
-    required: true
-  },
-  reaction: {
-    type: String,
-    required: false
-  }
 },
 {
   timestamps: true // Saves createdAt and updatedAt as dates. createdAt will be our timestamp.
 })
 
-module.exports = messageSchema
+module.exports = subscriptionSchema

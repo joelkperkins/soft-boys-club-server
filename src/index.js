@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }))
 app.get('/ping', (req, res) => res.status(200).send('OK'))
 
 // routes
-app.use('/chat', routes.chat) // sends messages
-app.use('/messages', routes.messages) // gets messages
+app.use('/subscribe', routes.subscription) // sends messages
+app.use('/notify', routes.notification) // gets messages
 
 module.exports = app

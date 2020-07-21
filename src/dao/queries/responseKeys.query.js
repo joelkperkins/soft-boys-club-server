@@ -1,3 +1,3 @@
 // exposed keys for the response object
-const keys = '-_id from to message createdAt reaction'
+const keys = '-_id name number'
 module.exports = keys

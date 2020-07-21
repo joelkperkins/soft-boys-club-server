@@ -1,6 +1,6 @@
 import config from '../../config'
 import mongoose from 'mongoose'
-import messageSchema from './schemas/message.schema'
+import subscriptionSchema from './schemas/subscription.schema'
 
 const DB_URI = config.db
 const COLLECTION = config.collection
@@ -8,5 +8,5 @@ const COLLECTION = config.collection
 module.exports = {
   dbConnect: () => mongoose.connect(DB_URI, { useNewUrlParser: true }),
   disconnect: () => mongoose.disconnect(),
-  Message: mongoose.model(COLLECTION, messageSchema)
+  Subscription: mongoose.model(COLLECTION, subscriptionSchema)
 }

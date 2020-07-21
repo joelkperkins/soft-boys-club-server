@@ -1,7 +1,7 @@
-import { messages } from './messages.route'
-import { chat } from './chat.route'
+import { notification } from './notification.route'
+import { subscription } from './subscribe.route'
 
 module.exports = {
-  messages,
-  chat
+  notification,
+  subscription
 }
