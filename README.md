@@ -1,6 +1,6 @@
-# Guild Chat
+# Soft Boys Club Server
 
-Guild Chat is an API integrated with MongoDB to stand up a simple messaging application
+Soft Boys Club Server is an API integrated with MongoDB to support the SBC: Radio with advanced functionality, like notification when a dj is live streaming
 
 ## Table of Contents
 
@@ -17,7 +17,7 @@ Prerequisites: [Node.js](https://nodejs.org/) (`>=12.14.0`)
 You can clone this repo:
 
 ```
-$ git clone https://github.com/joelkperkins/guild-chat.git
+$ git clone https://github.com/joelkperkins/soft-boys-club-server.git
 ```
 
 Then, install 
@@ -26,7 +26,7 @@ Then, install
 $ git npm install
 ```
 
-After that, you can run Guild Chat like this:
+After that, you can run SBC Server like this:
 
 ```
 $ npm start
@@ -34,7 +34,7 @@ $ npm start
 
 ## <a name="configuration"></a>Configuration
 
-After cloning Guild Chat, you'll have a `config.js` file in your directory. In it, you'll see some rules configured like this:
+After cloning SBC Server, you'll have a `config.js` file in your directory. In it, you'll see some rules configured like this:
 
 ```
 {
@@ -48,73 +48,48 @@ The default db string and the chatroom name will work for testing.
 
 ## <a name="routes"></a>Routes
 
-### GET /messages
+### POST /subscribe
 
-Get all messages in database sent in last 30 days, limited to 100. Send a `GET` to `/messages` to retrieve all messages. 
-
-```
-/**
- * @apiRoute get '/messages' Gets all messages sent by users within 100 days, limited to 100
- *
- * @apiSuccess {object[]} Array of message objects
- */
-```
-
-### GET /messages/between?to=&from=
-
-Gets all messages sent between two users within 100 days, limited to 100. Send a `GET` to `/messages?to=<string>&from=<string>` with added url query parameters indicating the users whose conversation you would like to retrieve. 
+Adds a new subscriber to our phone list. Send a `POST` to `/subscribe` with name and number to add a new subsriber
 
 ```
 /**
- * @apiRoute get '/messages/between' Gets all messages sent between two users within 100 days, limited to 100
+ * @apiRoute POST '/subscribe' subscribes to alerts from sbc
  *
- * @apiQueryParam {string} to - user who recieved the message
+ * @apiBody {object} { name: {string}, number: {string} }
  *
- * @apiQueryParam {string} from - user who sent the message
- *
- * @apiSuccess {object[]} Array of message objects
+ * @apiSuccess {String} Confirmation of subscription
  */
-```
+ ```
 
-### POST /chat
+### DELETE /subscribe
 
-Send a message to another user. Send a `POST` to `/chat` with a body containing the sender, recipient, and message. The message is saved and can be retrieved with the GET routes. 
+Remove user from phone list. Send a `DELETE` to `/subscribe` with name and number of user to delete. 
 
 ```
 /**
- * @apiRoute POST '/send' Send a chat message to another user
+ * @apiRoute DELETE '/subscribe' remove user from subscription list
  *
- * @apiBody {object} { to: {string}, from: {string}, message: {string} }
+ * @apiBody {object} { name: <string>, numbver: <string>}
  *
- * @apiSuccess {String} Confirmation of sent message, returns ID of message
+ * @apiSuccess {String} 200
  */
-```
+ ```
 
-### PUT /chat/react
+### GET /notification
 
-React to a message received. Send a `PUT` to `/chat/react` with a body containing the ID of the message to react to and reaction string. This reaction is saved with the message. 
-
-Currently accepted reactions are: 
- > 'like'
- > 'dislike"
+Notify all subscribers. Send a `GET` to `/notification`. Queries for subs and sends a text through Twilio
 
 ```
 /**
- * @apiRoute PUT '/react' User reacts to a message they received
+ * @apiRoute get '/notify' notifies all subscribers
  *
- * @apiBody {object} { messageId: <string>, reaction: <string>} Object containing id of message and reaction ('like/dislike')
- *
- * @apiSuccess {String} Number of updated messages
+ * @apiSuccess 200
  */
 ```
-
-## <a name="notes"></a>Notes
-
-Our Demo Mongo database will eventually run out of space. Please dont spam messages while testing.
-100 stars and we will add a delete function. 
 
 ## <a name="author"></a>Author
 
-Joel K. Perkins
+Oomrazoom
 
 # soft-boys-club-server

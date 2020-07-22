@@ -32,6 +32,7 @@ subscription.post('/', async (req, res) => {
  *
  * @apiSuccess {String} 200
  */
+
 subscription.delete('/', async (req, res) => {
   const subscriber = req.body
   try {

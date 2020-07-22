@@ -12,6 +12,6 @@ app.get('/ping', (req, res) => res.status(200).send('OK'))
 
 // routes
 app.use('/subscribe', routes.subscription) // sends messages
-app.use('/notify', routes.notification) // gets messages
+app.use('/notification', routes.notification) // gets messages
 
 module.exports = app
