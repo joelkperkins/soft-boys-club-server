@@ -10,7 +10,7 @@
     "prod": "node dist/api.bundle.js"
   },
   "keywords": [],
-  "author": "Joel K. Perkins <joel.climbs@gmail.com> (www.joelkperkins.com)",
+  "author": "Joel K. Perkins <joel@oomrazoom.com> (www.oomrazoom.com)",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.8.3",
