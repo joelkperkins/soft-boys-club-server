@@ -13,25 +13,41 @@ const notification = Router()
  * @apiSuccess 200
  */
 
-notification.get('/', async (req, res) => {
+notification.get('/', async (_, res) => {
   let subscriberArray
+  let twilio
+  try {
+    console.log(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN)
+    const id = process.env.TWILIO_ACCOUNT_SID
+    const key = process.env.TWILIO_AUTH_TOKEN
+    twilio = new Twilio(id, key)
+  } catch (err) {
+    return res.status(500).json(err)
+  }
+  console.log(1)
 
-  const twilio = new Twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN)
+  const send = (name, number) => {
+    return twilio.messages
+      .create({
+        body: `Hi ${name}! We love you and wanted to let you know that SBC: Radio is streaming live! Tune in at www.softboys.club`,
+        to: `+1${number}`,
+        from: process.env.TWILIO_NUMBER
+      })
+      .then(message => console.log(message.sid))
+  }
+
   try {
     subscriberArray = await queryForAllSubscribers()
-    subscriberArray.forEach(sub => {
-      twilio.messages
-        .create({
-          body: `Hi ${sub.name}! We love you and wanted to let you know that ${req.body.name} is streaming live! Tune in at www.softboys.club`,
-          messagingServiceSid: 'MG9752274e9e519418a7406176694466fa',
-          to: sub.number
-        })
-        .then(message => console.log(message.sid))
+    console.log(subscriberArray)
+    subscriberArray.forEach(async sub => {
+      if (sub.number && sub.name) {
+        await send(sub.name, sub.number)
+      }
     })
+    return res.status(200).json(subscriberArray)
   } catch (err) {
-    return res.status(400).send(err)
+    return res.status(400).json(err)
   }
-  return res.status(200).json(subscriberArray)
 })
 
 module.exports = { notification }

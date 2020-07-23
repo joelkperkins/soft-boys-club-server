@@ -19,8 +19,8 @@ subscription.post('/', async (req, res) => {
   try {
     subscriber = await subscribe(subscriber)
   } catch (err) {
-    const errorCode = parseInt(err.message)
-    return res.status(errorCode).json(err.message)
+    console.log(err)
+    return res.status(500).json(err)
   }
   res.status(200).send(subscriber)
 })
