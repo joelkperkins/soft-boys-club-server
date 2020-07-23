@@ -1,11 +1,13 @@
 {
-  "name": "guild",
+  "name": "sbc-server",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "start": "babel-node src/server.js",
     "dev": "nodemon --exec babel-node src/server.js",
-    "test": "mocha --require @babel/register"
+    "test": "mocha --require @babel/register",
+    "build": "webpack",
+    "prod": "node dist/api.bundle.js"
   },
   "keywords": [],
   "author": "Joel K. Perkins <joel.climbs@gmail.com> (www.joelkperkins.com)",
@@ -25,7 +27,9 @@
     "mocha": "^7.0.0",
     "nodemon": "^2.0.2",
     "request": "^2.88.0",
-    "sinon": "^8.1.0"
+    "sinon": "^8.1.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -33,6 +37,7 @@
     "express": "^4.17.1",
     "moment": "^2.24.0",
     "mongoose": "^5.8.7",
+    "path": "^0.12.7",
     "twilio": "^3.48.0"
   },
   "directories": {
