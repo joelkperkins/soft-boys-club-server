@@ -4,7 +4,6 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 const DB_URI = process.env.DB
-console.log(DB_URI)
 const COLLECTION = process.env.COLLECTION
 
 module.exports = {
