@@ -12,6 +12,9 @@
   "keywords": [],
   "author": "Joel K. Perkins <joel@oomrazoom.com> (www.oomrazoom.com)",
   "license": "ISC",
+  "engines": {
+    "node": "12.x"
+  },
   "devDependencies": {
     "@babel/core": "^7.8.3",
     "@babel/node": "^7.8.3",

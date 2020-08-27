@@ -1,0 +1,6 @@
+TWILIO_ACCOUNT_SID=ACa072fed975356e028c0f75e9a0fef5a3
+TWILIO_AUTH_TOKEN=8e7706d46f38b60fa9e7d52d606e83b1
+TWILIO_NUMBER=+12056497781
+DB=mongodb+srv://joel:prOOosSVXkBh2cou@cluster0.8mksz.mongodb.net/sbc?retryWrites=true&w=majority
+COLLECTION=subs
+PORT=3000
